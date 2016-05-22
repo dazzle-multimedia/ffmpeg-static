@@ -1,10 +1,12 @@
 FFmpeg static build
 ===================
 
+*STATUS*: community-supported
+
 Three scripts to make a static build of ffmpeg with all the latest codecs (webm + h264).
 
 Just follow the instructions below. Once you have the build dependencies,
-just run ./build.sh, wait and you should get the ffmpeg binary in target/bin
+run ./build.sh, wait and you should get the ffmpeg binary in target/bin
 
 Build dependencies
 ------------------
@@ -12,10 +14,10 @@ Build dependencies
     # Debian & Ubuntu
     $ apt-get install build-essential curl tar
 
-	# OS X
-	# install XCode, it can be found at http://developer.apple.com/
-	# (apple login needed)
-	# <FIXME???>
+    # OS X
+    # install XCode, it can be found at http://developer.apple.com/
+    # (apple login needed)
+    # <FIXME???>
 
 Build & "install"
 -----------------
@@ -34,13 +36,13 @@ Debug
 
 On the top-level of the project, run:
 
-	$ . env.source
-	
+    $ . env.source
+    
 You can then enter the source folders and make the compilation yourself
 
-	$ cd build/ffmpeg-*
-	$ ./configure --prefix=$TARGET_DIR #...
-	# ...
+    $ cd build/ffmpeg-*
+    $ ./configure --prefix=$TARGET_DIR #...
+    # ...
 
 Remaining links
 ---------------
@@ -50,18 +52,35 @@ means the executable won't work across distributions or even across releases.
 
     # On Ubuntu 10.04:
     $ ldd ./target/bin/ffmpeg 
-	not a dynamic executable
+    not a dynamic executable
 
     # on OSX 10.6.4:
     $ otool -L ffmpeg 
-	ffmpeg:
-		/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 125.2.0)
+    ffmpeg:
+        /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 125.2.0)
 
-TODO
-----
+Community, bugs and reports
+---------------------------
+
+This repository is community-supported. If you make a useful PR then you will
+be added as a contributor to the repo. All changes are assumed to be licensed
+under the same license as the project (ISC).
+
+As a contributor you can do whatever you want. Help maintain the scripts,
+upgrade dependencies and merge other people's PRs. Just be responsible and
+make an issue if you want to introduce bigger changes so we can discuss them
+beforehand.
+ 
+### TODO
 
  * Add some tests to check that video output is correctly generated
    this would help upgrading the package without too much work
  * OSX's xvidcore does not detect yasm correctly
- * remove remaining libs
- 
+ * remove remaining libs (?)
+
+License
+-------
+
+This project is licensed under the ISC. See the [LICENSE](LICENSE) file for
+the legalities.
+
